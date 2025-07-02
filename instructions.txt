@@ -1,0 +1,156 @@
+Context:
+You are an expert in chatbot architectures and platform migrations. We have two artifacts—botDefinition.js and botFunction.js—plus a config.json. I’m migrating this bot to a new platform.
+
+Your Tasks:
+
+High-Level Overview
+
+Summarize the bot’s primary purpose and end-to-end conversation flow.
+
+Identify key user journeys or “intents” supported by botDefinition.js.
+
+botDefinition.js
+
+Intents & Dialog Structure
+
+Extract all intents, entities, slots, and dialog steps.
+
+Map each dialog node: triggers, prompts, choices, and transitions.
+
+REST API Calls & Transformations
+
+For each fetch/axios/HTTP call:
+
+Endpoint (from config.json or literal)
+
+HTTP method and headers
+
+Request payload structure and slot/context sources
+
+Response handling: parsing, data mappings into bot variables
+
+Error-handling or retry logic in-flow
+
+Document any inline data transformations (e.g. date formatting, filtering).
+
+Integration with botFunction.js
+
+Identify every custom function invoked from bot scripts (e.g. calculateX(), formatY()).
+
+Show where each helper is called and why.
+
+botFunction.js
+
+Function Catalog
+
+List all exported functions: name, parameters, return type.
+
+Describe each function’s purpose and inputs/outputs.
+
+Usage Context
+
+For each helper, point to its call sites in botDefinition.js.
+
+Note any assumptions or dependencies (e.g. expects a userContext object).
+
+config.json
+
+Enumerate configuration keys: service URLs, credentials placeholders, timeouts, feature toggles.
+
+Explain which keys drive API calls in botDefinition.js and which control behavior (e.g. locale, retry limits).
+
+Conversation & State Management
+
+Describe how context is stored and passed between turns (session variables, memory objects).
+
+List any slot-filling, validation, and reprompt strategies in botDefinition.js.
+
+Migration Plan
+
+Dialog Mapping: For each intent/dialog, propose the equivalent construct in the target platform (flow, module, script).
+
+API Mapping: For each HTTP call, outline the new platform’s connector/action, payload template, and variable mapping.
+
+Helper Functions: Show how to re-implement or import each custom function.
+
+Gap Analysis: Highlight any platform-specific features you’ll need to replace (custom code hooks, built-in validations).
+
+Deliverable Format:
+
+Use clear headings per section (Overview, botDefinition.js, botFunction.js, config.json, Migration Plan).
+
+Within each section, use numbered lists or tables to map intents, API calls, and variables.
+
+Include code snippets or JSON excerpts to illustrate each mapping.
+
+End with a migration checklist summarizing all components to port over.
+
+
+
+
+
+We’re migrating a chatbot implemented in three artifacts—botDefinition.js, botFunction.js, and config.json—to a new platform. The botDefinition.js file contains all dialog logic and REST calls, botFunction.js contains only custom helper functions, and config.json holds endpoint URLs and feature toggles.
+
+Please perform the following tasks:
+
+High-Level Overview
+
+Summarize the bot’s core purpose and end-to-end conversation flow.
+
+List the main user journeys or “intents” defined in botDefinition.js.
+
+Dialog & API Extraction (botDefinition.js)
+
+Intents & Dialog Structure: Extract every intent, entity, slot, and dialog node (triggers, prompts, transitions).
+
+REST Calls: For each HTTP call in the script:
+
+Endpoint (from config.json or literal) and HTTP method
+
+Payload structure and source variables (slots/context)
+
+Response parsing and mapping into bot variables
+
+Inline data transformations (e.g., date formatting)
+
+Error-handling logic (fallback messages, retries)
+
+Helper Integration: Identify all calls to functions from botFunction.js (e.g. formatDate(), calculateScore()) and explain their role.
+
+Helper Functions (botFunction.js)
+
+List every exported function with its signature and describe its purpose.
+
+Point to each invocation in botDefinition.js and note expected inputs/outputs.
+
+Configuration (config.json)
+
+Enumerate all configuration keys (service URLs, credentials placeholders, timeouts, toggles).
+
+Explain how each key influences API calls and dialog behavior.
+
+State Management & Validation
+
+Describe how the bot tracks session state or context across turns.
+
+Document any slot-filling, validation, and reprompt strategies.
+
+Migration Blueprint
+
+Dialog Mapping: For each intent, propose the equivalent construct in the target platform (flow/module/script).
+
+API Mapping: For each REST call, outline the new platform’s connector/action, payload templates, and variable mappings.
+
+Helpers: Recommend how to re-implement or import each custom function.
+
+Gap Analysis: Highlight any features or behaviors that need special handling in the new platform.
+
+Deliverable Format:
+
+Use headings for each section (Overview, Dialog & APIs, Helpers, Config, State, Migration Blueprint).
+
+Use numbered lists or tables to map intents, API calls, variables, and functions.
+
+Include code snippets or JSON excerpts for clarity.
+
+Finish with a migration checklist summarizing all components to port.
